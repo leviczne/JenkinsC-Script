@@ -1,5 +1,13 @@
 pipeline { 
 
+  // This pipeline requires the following plugins: 
+
+  // * Git: https://plugins.jenkins.io/git/ 
+
+  // * Workflow Aggregator: https://plugins.jenkins.io/workflow-aggregator/ 
+
+  // * MSTest: https://plugins.jenkins.io/mstest/ 
+
   agent 'any' 
 
   stages { 
@@ -90,13 +98,13 @@ pipeline {
 
                if (isUnix()){ 
 
-                sh(script: 'dotnet test -l:trx || true')   
+                sh(script: 'dotnet test -l:trx')   
 
                } 
 
                else { 
 
-                   bat (script: 'dotnet test -l:trx || true')   
+                   bat (script: 'dotnet test -l:trx')   
 
                } 
 
